@@ -247,21 +247,14 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 19px;
-      font-weight: 900;
-      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--gold), #f0c783);
-      color: var(--dark);
-      font-weight: 900;
+    .logo-image img {
+      display: block;
+      width: 210px;
+      height: auto;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -1016,6 +1009,19 @@
       gap: 18px;
       flex-wrap: wrap;
     }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-brand img {
+      width: 150px;
+      height: auto;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 6px 10px;
+    }
 
     .mobile-bar {
       display: none;
@@ -1103,8 +1109,8 @@
         height: 68px;
       }
 
-      .logo span:last-child {
-        font-size: 16px;
+      .logo-image img {
+        width: 150px;
       }
 
       .phone,
@@ -1175,9 +1181,8 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="logo" href="#">
-        <span class="logo-mark">NP</span>
-        <span>Потолки Киев</span>
+      <a class="logo logo-image" href="#">
+        <img src="logo.png" alt="Синій Птах — натяжні стелі" />
       </a>
 
       <nav class="nav-links">
@@ -2002,9 +2007,13 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© 2026 Потолки Киев. Натяжные потолки под ключ.</div>
+      <div class="footer-brand">
+        <img src="logo.png" alt="Синій Птах — натяжні стелі" />
+        <span>© 2026 Синій Птах. Натяжні стелі під ключ.</span>
+      </div>
+
       <div>
-        Киев и Киевская область ·
+        Київ та Київська область ·
         <a href="tel:+380505116812">+380 50 511 6812</a>
       </div>
     </div>
