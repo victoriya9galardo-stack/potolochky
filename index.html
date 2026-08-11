@@ -4,33 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Синій Птах — натяжные потолки в Киеве за 1 день</title>
+  <title>Натяжные потолки в Киеве за 1 день — бесплатный замер</title>
   <meta
     name="description"
-    content="Синій Птах — натяжные потолки в Киеве и области под ключ. Бесплатный замер, расчет стоимости за 10 минут, монтаж за 1 день, гарантия."
+    content="Натяжные потолки в Киеве и области под ключ. Бесплатный замер, расчет стоимости за 10 минут, монтаж за 1 день, гарантия."
   />
 
   <style>
     :root {
-      --dark: #111633;
-      --dark-soft: #1b2454;
+      --dark: #151515;
+      --dark-soft: #202020;
       --graphite: #2b2b2b;
-      --cream: #f5f7ff;
-      --cream-soft: #ffffff;
+      --cream: #f7f0e6;
+      --cream-soft: #fbf7f0;
       --white: #ffffff;
-      --text: #1f2337;
-      --muted: #60667c;
+      --text: #1f1f1f;
+      --muted: #6b6258;
       --gold: #c7903f;
       --gold-dark: #a66f24;
       --gold-soft: #f1dcc0;
-      --blue: #2f3ca3;
-      --blue-dark: #1f2b86;
-      --blue-soft: #eef1ff;
-      --border: #dde2ff;
+      --border: #e7dacb;
       --green: #2f8f57;
       --green-soft: #e7f7ed;
+      --blue: #249bd7;
       --violet: #7c4dff;
-      --shadow: 0 22px 60px rgba(31, 43, 134, 0.14);
+      --shadow: 0 22px 60px rgba(21, 21, 21, 0.14);
       --radius: 20px;
       --radius-lg: 34px;
       --container: 1180px;
@@ -89,8 +87,8 @@
 
     .section-dark {
       background:
-        radial-gradient(circle at 12% 20%, rgba(47, 60, 163, 0.24), transparent 28%),
-        radial-gradient(circle at 90% 80%, rgba(199, 144, 63, 0.16), transparent 28%),
+        radial-gradient(circle at 12% 20%, rgba(199, 144, 63, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(199, 144, 63, 0.14), transparent 28%),
         var(--dark);
       color: #e8dfd4;
     }
@@ -130,7 +128,7 @@
     }
 
     .section-dark p {
-      color: #cfd4ff;
+      color: #cfc3b5;
     }
 
     .lead {
@@ -152,8 +150,8 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: var(--blue-soft);
-      color: var(--blue);
+      background: var(--gold-soft);
+      color: #744812;
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 16px;
@@ -161,9 +159,9 @@
 
     .section-dark .eyebrow,
     .hero .eyebrow {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #ffffff;
+      background: rgba(199, 144, 63, 0.16);
+      border: 1px solid rgba(199, 144, 63, 0.35);
+      color: #f5d4a3;
     }
 
     .btn {
@@ -184,14 +182,14 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--blue), #5364d8);
-      color: var(--white);
-      box-shadow: 0 14px 28px rgba(47, 60, 163, 0.28);
+      background: linear-gradient(135deg, var(--gold), #e0b66e);
+      color: var(--dark);
+      box-shadow: 0 14px 28px rgba(199, 144, 63, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      background: linear-gradient(135deg, var(--blue-dark), #4356cc);
+      background: linear-gradient(135deg, #d8a455, #efc987);
     }
 
     .btn-dark {
@@ -200,7 +198,7 @@
     }
 
     .btn-dark:hover {
-      background: var(--dark-soft);
+      background: var(--graphite);
     }
 
     .btn-outline {
@@ -232,14 +230,14 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(21, 21, 21, 0.92);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(45, 61, 160, 0.12);
-      color: var(--text);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--white);
     }
 
     .nav {
-      height: 84px;
+      height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -249,27 +247,34 @@
     .logo {
       display: flex;
       align-items: center;
-      flex: 0 0 auto;
+      gap: 12px;
+      font-size: 19px;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
-    .logo-image img {
-      display: block;
-      width: 210px;
-      height: auto;
-      object-fit: contain;
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold), #f0c783);
+      color: var(--dark);
+      font-weight: 900;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 24px;
-      color: var(--blue);
+      color: #d8d0c6;
       font-size: 15px;
       font-weight: 700;
     }
 
     .nav-links a:hover {
-      color: var(--gold);
+      color: #f0c783;
     }
 
     .nav-contact {
@@ -280,7 +285,7 @@
 
     .phone {
       font-weight: 900;
-      color: var(--blue);
+      color: var(--white);
       white-space: nowrap;
     }
 
@@ -315,11 +320,11 @@
     }
 
     .hero {
-      min-height: calc(100vh - 84px);
+      min-height: calc(100vh - 78px);
       display: flex;
       align-items: center;
       background:
-        linear-gradient(90deg, rgba(17, 22, 51, 0.94) 0%, rgba(17, 22, 51, 0.78) 48%, rgba(17, 22, 51, 0.42) 100%),
+        linear-gradient(90deg, rgba(21, 21, 21, 0.94) 0%, rgba(21, 21, 21, 0.76) 48%, rgba(21, 21, 21, 0.42) 100%),
         url("https://picsum.photos/seed/luxury-stretch-ceiling-hero-v2/1600/1000") center / cover no-repeat;
       color: var(--white);
       padding: 88px 0;
@@ -334,7 +339,7 @@
     }
 
     .hero .lead {
-      color: #e7ebff;
+      color: #e5d8c8;
     }
 
     .hero-actions {
@@ -349,7 +354,7 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-bottom: 28px;
-      color: #eef1ff;
+      color: #eadccb;
       font-weight: 800;
       font-size: 15px;
     }
@@ -377,14 +382,14 @@
 
     .stat strong {
       display: block;
-      color: #ffffff;
+      color: #f4c983;
       font-size: 28px;
       line-height: 1;
       margin-bottom: 8px;
     }
 
     .stat span {
-      color: #dfe4ff;
+      color: #ded3c5;
       font-weight: 700;
       font-size: 14px;
     }
@@ -468,7 +473,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 26px;
-      box-shadow: 0 12px 32px rgba(31, 43, 134, 0.06);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
     }
 
     .card-icon {
@@ -477,8 +482,8 @@
       border-radius: 16px;
       display: grid;
       place-items: center;
-      background: var(--blue-soft);
-      color: var(--blue);
+      background: var(--gold-soft);
+      color: #744812;
       font-size: 24px;
       font-weight: 900;
       margin-bottom: 18px;
@@ -519,15 +524,15 @@
       display: inline-flex;
       padding: 6px 10px;
       border-radius: 999px;
-      background: var(--blue-soft);
-      color: var(--blue);
+      background: var(--cream);
+      color: #795116;
       font-size: 13px;
       font-weight: 900;
     }
 
     .photo-offer {
       background:
-        linear-gradient(135deg, rgba(17, 22, 51, 0.92), rgba(17, 22, 51, 0.74)),
+        linear-gradient(135deg, rgba(21, 21, 21, 0.9), rgba(21, 21, 21, 0.72)),
         url("https://picsum.photos/seed/send-photo-ceiling/1100/700") center / cover no-repeat;
       color: var(--white);
       border-radius: var(--radius-lg);
@@ -540,7 +545,7 @@
     }
 
     .photo-offer p {
-      color: #e7ebff;
+      color: #e6d9c9;
     }
 
     .messenger-row {
@@ -565,7 +570,7 @@
       border-radius: var(--radius);
       background: var(--white);
       border: 1px solid var(--border);
-      box-shadow: 0 12px 32px rgba(31, 43, 134, 0.06);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
     }
 
     th,
@@ -586,15 +591,15 @@
     }
 
     td:last-child {
-      color: var(--blue);
+      color: var(--gold-dark);
       font-weight: 900;
       white-space: nowrap;
     }
 
     .notice {
-      background: var(--blue-soft);
-      border: 1px solid var(--border);
-      color: var(--blue);
+      background: #fff8eb;
+      border: 1px solid #f0d7ae;
+      color: #6f4613;
       border-radius: var(--radius);
       padding: 22px;
       font-weight: 900;
@@ -612,14 +617,14 @@
       justify-content: space-between;
       gap: 16px;
       padding: 14px 16px;
-      background: var(--cream);
+      background: var(--cream-soft);
       border: 1px solid var(--border);
       border-radius: 14px;
       font-weight: 800;
     }
 
     .room-price span:last-child {
-      color: var(--blue);
+      color: var(--gold-dark);
       white-space: nowrap;
     }
 
@@ -680,7 +685,7 @@
       padding: 14px 15px;
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: var(--cream);
+      background: var(--cream-soft);
       color: var(--text);
       font-size: 16px;
       outline: none;
@@ -693,8 +698,8 @@
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(47, 60, 163, 0.14);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(199, 144, 63, 0.16);
       background: var(--white);
     }
 
@@ -726,8 +731,8 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), #5364d8);
-      color: var(--white);
+      background: linear-gradient(135deg, var(--gold), #edc47d);
+      color: var(--dark);
       display: grid;
       place-items: center;
       font-weight: 900;
@@ -746,7 +751,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(31, 43, 134, 0.06);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
     }
 
     .ba-images {
@@ -767,7 +772,7 @@
       top: 12px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(17, 22, 51, 0.84);
+      background: rgba(21, 21, 21, 0.82);
       color: var(--white);
       font-size: 13px;
       font-weight: 900;
@@ -790,7 +795,7 @@
       border-radius: var(--radius);
       background: var(--white);
       border: 1px solid var(--border);
-      box-shadow: 0 12px 32px rgba(31, 43, 134, 0.06);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
       text-align: left;
     }
 
@@ -827,8 +832,8 @@
     .work-meta div {
       padding: 9px 10px;
       border-radius: 12px;
-      background: var(--blue-soft);
-      color: var(--blue);
+      background: var(--cream);
+      color: #6b4a17;
       font-size: 13px;
       font-weight: 900;
     }
@@ -850,7 +855,7 @@
 
     .trust-card strong {
       display: block;
-      color: #ffffff;
+      color: #f4c983;
       font-size: 28px;
       line-height: 1;
       margin-bottom: 12px;
@@ -869,7 +874,7 @@
       border-radius: var(--radius);
       padding: 26px;
       text-align: left;
-      box-shadow: 0 12px 32px rgba(31, 43, 134, 0.06);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
     }
 
     .stars {
@@ -890,7 +895,7 @@
       height: 54px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--blue-soft);
+      border: 2px solid var(--gold-soft);
     }
 
     .client strong {
@@ -910,7 +915,7 @@
       padding: 46px;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(135deg, rgba(17, 22, 51, 0.88), rgba(17, 22, 51, 0.74)),
+        linear-gradient(135deg, rgba(21, 21, 21, 0.85), rgba(21, 21, 21, 0.72)),
         url("https://picsum.photos/seed/ceiling-cta-background-v2/1200/600") center / cover no-repeat;
       color: var(--white);
       box-shadow: var(--shadow);
@@ -922,7 +927,7 @@
     }
 
     .cta p {
-      color: #e7ebff;
+      color: #e6d9c9;
     }
 
     .faq {
@@ -938,7 +943,7 @@
       border-radius: 18px;
       padding: 20px 22px;
       text-align: left;
-      box-shadow: 0 8px 24px rgba(31, 43, 134, 0.04);
+      box-shadow: 0 8px 24px rgba(21, 21, 21, 0.04);
     }
 
     summary {
@@ -991,16 +996,16 @@
     .area-list span {
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--blue-soft);
+      background: var(--cream);
       border: 1px solid var(--border);
       font-size: 14px;
       font-weight: 800;
-      color: var(--blue);
+      color: #6b4a17;
     }
 
     .footer {
-      background: #111633;
-      color: #cfd4ff;
+      background: #0d0d0d;
+      color: #a79c90;
       padding: 28px 0;
       font-size: 14px;
     }
@@ -1008,23 +1013,8 @@
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 18px;
       flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .footer-brand img {
-      width: 150px;
-      height: auto;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 6px 10px;
     }
 
     .mobile-bar {
@@ -1061,8 +1051,8 @@
     }
 
     .mobile-bar a:nth-child(3) {
-      background: var(--blue);
-      color: var(--white);
+      background: var(--gold);
+      color: var(--dark);
     }
 
     @media (max-width: 1050px) {
@@ -1110,11 +1100,11 @@
       }
 
       .nav {
-        height: 72px;
+        height: 68px;
       }
 
-      .logo-image img {
-        width: 150px;
+      .logo span:last-child {
+        font-size: 16px;
       }
 
       .phone,
@@ -1127,7 +1117,7 @@
         min-height: auto;
         padding: 66px 0;
         background:
-          linear-gradient(180deg, rgba(17, 22, 51, 0.94), rgba(17, 22, 51, 0.78)),
+          linear-gradient(180deg, rgba(21, 21, 21, 0.94), rgba(21, 21, 21, 0.78)),
           url("https://picsum.photos/seed/luxury-stretch-ceiling-mobile-v2/900/1200") center / cover no-repeat;
       }
 
@@ -1178,16 +1168,6 @@
       .mobile-bar {
         display: flex;
       }
-
-      .footer-brand {
-        width: 100%;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-brand img {
-        width: 140px;
-      }
     }
   </style>
 </head>
@@ -1195,8 +1175,9 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="logo logo-image" href="#">
-        <img src="logo.jpeg" alt="Синій Птах — натяжні стелі" />
+      <a class="logo" href="#">
+        <span class="logo-mark">NP</span>
+        <span>Потолки Киев</span>
       </a>
 
       <nav class="nav-links">
@@ -1227,9 +1208,9 @@
         <h1>Натяжные потолки в Киеве с установкой за 1 день</h1>
 
         <p class="lead">
-          Синій Птах рассчитает стоимость за 10 минут, покажет образцы на замере
-          и установит ровный потолок без грязного ремонта. Можно отправить фото комнаты
-          в мессенджер — подскажем ориентировочную цену без выезда.
+          Рассчитаем стоимость за 10 минут, покажем образцы на замере и установим
+          ровный потолок без грязного ремонта. Можно отправить фото комнаты в мессенджер —
+          подскажем ориентировочную цену без выезда.
         </p>
 
         <div class="hero-actions">
@@ -2021,13 +2002,9 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="logo.jpeg" alt="Синій Птах — натяжні стелі" />
-        <span>© 2026 Синій Птах. Натяжні стелі під ключ.</span>
-      </div>
-
+      <div>© 2026 Потолки Киев. Натяжные потолки под ключ.</div>
       <div>
-        Київ та Київська область ·
+        Киев и Киевская область ·
         <a href="tel:+380505116812">+380 50 511 6812</a>
       </div>
     </div>
