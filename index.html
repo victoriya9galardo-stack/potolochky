@@ -335,6 +335,28 @@
       color: #e5d8c8;
     }
 
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      max-width: 820px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      color: #e5d8c8;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
     .hero-actions {
       display: flex;
       gap: 14px;
@@ -1133,6 +1155,7 @@
       }
 
       .hero-stats,
+      .hero-features,
       .cards-3,
       .cards-4,
       .portfolio,
@@ -1212,11 +1235,12 @@
 
         <h1>Натяжные потолки в Киеве с установкой за 1 день</h1>
 
-        <p class="lead">
-          Рассчитаем стоимость за 10 минут, покажем образцы на замере и установим
-          ровный потолок без грязного ремонта. Можно отправить фото комнаты в мессенджер —
-          подскажем ориентировочную цену без выезда.
-        </p>
+        <div class="hero-features">
+          <div class="feature-item">✓ Рассчитаем стоимость за 10 минут</div>
+          <div class="feature-item">✓ Покажем образцы на замере</div>
+          <div class="feature-item">✓ Установим ровный потолок без грязного ремонта</div>
+          <div class="feature-item">✓ Можно отправить фото комнаты в мессенджер — подскажем ориентировочную цену без выезда</div>
+        </div>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#calc">Узнать цену моего потолка</a>
