@@ -403,6 +403,13 @@
     .type-card {
       overflow: hidden;
       padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .type-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(21, 21, 21, 0.12);
     }
 
     .type-card img {
@@ -630,6 +637,183 @@
       color: var(--dark);
     }
 
+    /* Gallery Modal Styles */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .gallery-modal.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+      background: rgba(21, 21, 21, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-title {
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .gallery-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--white);
+      font-size: 28px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .gallery-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+    }
+
+    .gallery-main-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .gallery-nav-btn.prev {
+      left: 20px;
+    }
+
+    .gallery-nav-btn.next {
+      right: 20px;
+    }
+
+    .gallery-thumbnails {
+      display: flex;
+      gap: 12px;
+      padding: 20px 30px;
+      background: rgba(21, 21, 21, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(199, 144, 63, 0.5) rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-thumbnails::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery-thumbnails::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .gallery-thumbnails::-webkit-scrollbar-thumb {
+      background: rgba(199, 144, 63, 0.5);
+      border-radius: 4px;
+    }
+
+    .gallery-thumbnails::-webkit-scrollbar-thumb:hover {
+      background: rgba(199, 144, 63, 0.7);
+    }
+
+    .gallery-thumb {
+      width: 100px;
+      height: 70px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+      opacity: 0.6;
+    }
+
+    .gallery-thumb:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    .gallery-thumb.active {
+      border-color: var(--gold);
+      opacity: 1;
+    }
+
+    .gallery-counter {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: rgba(21, 21, 21, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      color: var(--white);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
     @media (max-width: 1050px) {
       .nav-links {
         display: none;
@@ -647,6 +831,16 @@
 
       .cta {
         grid-template-columns: 1fr;
+      }
+
+      .gallery-main {
+        padding: 20px;
+      }
+
+      .gallery-nav-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
       }
     }
 
@@ -711,6 +905,53 @@
 
       .mobile-bar {
         display: flex;
+      }
+
+      .gallery-header {
+        padding: 15px 20px;
+      }
+
+      .gallery-title {
+        font-size: 18px;
+      }
+
+      .gallery-close {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+      }
+
+      .gallery-main {
+        padding: 15px;
+      }
+
+      .gallery-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .gallery-nav-btn.prev {
+        left: 10px;
+      }
+
+      .gallery-nav-btn.next {
+        right: 10px;
+      }
+
+      .gallery-thumbnails {
+        padding: 15px 20px;
+      }
+
+      .gallery-thumb {
+        width: 80px;
+        height: 60px;
+      }
+
+      .gallery-counter {
+        bottom: 90px;
+        font-size: 12px;
+        padding: 8px 16px;
       }
     }
   </style>
@@ -838,7 +1079,7 @@
         </p>
 
         <div class="cards-4">
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('matte')">
             <img src="https://picsum.photos/seed/matte-ceiling-detail/600/420" alt="Матовый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Матовые</h3>
@@ -849,7 +1090,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('gloss')">
             <img src="https://picsum.photos/seed/gloss-ceiling-detail/600/420" alt="Глянцевый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Глянцевые</h3>
@@ -860,7 +1101,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('satin')">
             <img src="https://picsum.photos/seed/satin-ceiling-detail/600/420" alt="Сатиновый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Сатиновые</h3>
@@ -871,7 +1112,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('shadow')">
             <img src="https://picsum.photos/seed/shadow-ceiling-detail/600/420" alt="Теневой потолок" loading="lazy" />
             <div class="type-body">
               <h3>Теневые</h3>
@@ -882,7 +1123,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('floating')">
             <img src="https://picsum.photos/seed/floating-ceiling-detail/600/420" alt="Парящий потолок" loading="lazy" />
             <div class="type-body">
               <h3>Парящие</h3>
@@ -893,7 +1134,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('multilevel')">
             <img src="https://picsum.photos/seed/multilevel-ceiling-detail/600/420" alt="Многоуровневый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Многоуровневые</h3>
@@ -904,7 +1145,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('print')">
             <img src="https://picsum.photos/seed/print-ceiling-detail/600/420" alt="Потолок с фотопечатью" loading="lazy" />
             <div class="type-body">
               <h3>С фотопечатью</h3>
@@ -915,7 +1156,7 @@
             </div>
           </div>
 
-          <div class="card type-card">
+          <div class="card type-card" onclick="openGallery('starry')">
             <img src="https://picsum.photos/seed/starry-ceiling-detail/600/420" alt="Звездное небо" loading="lazy" />
             <div class="type-body">
               <h3>Звездное небо</h3>
@@ -1176,5 +1417,194 @@
     <a href="https://t.me/+380505116812" target="_blank" rel="noopener">Telegram</a>
     <a href="#calc">Расчет</a>
   </div>
+
+  <!-- Gallery Modal -->
+  <div class="gallery-modal" id="galleryModal">
+    <div class="gallery-header">
+      <h2 class="gallery-title" id="galleryTitle">Фотогалерея</h2>
+      <button class="gallery-close" onclick="closeGallery()">&times;</button>
+    </div>
+
+    <div class="gallery-main">
+      <button class="gallery-nav-btn prev" onclick="prevImage()">&#8249;</button>
+      <img class="gallery-main-image" id="galleryMainImage" src="" alt="Фото потолка" />
+      <button class="gallery-nav-btn next" onclick="nextImage()">&#8250;</button>
+      <div class="gallery-counter">
+        <span id="currentIndex">1</span> / <span id="totalImages">1</span>
+      </div>
+    </div>
+
+    <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+  </div>
+
+  <script>
+    // Gallery data - здесь можно добавлять неограниченное количество фотографий
+    const galleryData = {
+      matte: {
+        title: 'Матовые потолки',
+        images: [
+          'https://picsum.photos/seed/matte-1/1200/800',
+          'https://picsum.photos/seed/matte-2/1200/800',
+          'https://picsum.photos/seed/matte-3/1200/800',
+          'https://picsum.photos/seed/matte-4/1200/800',
+          'https://picsum.photos/seed/matte-5/1200/800',
+          'https://picsum.photos/seed/matte-6/1200/800'
+        ]
+      },
+      gloss: {
+        title: 'Глянцевые потолки',
+        images: [
+          'https://picsum.photos/seed/gloss-1/1200/800',
+          'https://picsum.photos/seed/gloss-2/1200/800',
+          'https://picsum.photos/seed/gloss-3/1200/800',
+          'https://picsum.photos/seed/gloss-4/1200/800',
+          'https://picsum.photos/seed/gloss-5/1200/800'
+        ]
+      },
+      satin: {
+        title: 'Сатиновые потолки',
+        images: [
+          'https://picsum.photos/seed/satin-1/1200/800',
+          'https://picsum.photos/seed/satin-2/1200/800',
+          'https://picsum.photos/seed/satin-3/1200/800',
+          'https://picsum.photos/seed/satin-4/1200/800'
+        ]
+      },
+      shadow: {
+        title: 'Теневые потолки',
+        images: [
+          'https://picsum.photos/seed/shadow-1/1200/800',
+          'https://picsum.photos/seed/shadow-2/1200/800',
+          'https://picsum.photos/seed/shadow-3/1200/800',
+          'https://picsum.photos/seed/shadow-4/1200/800',
+          'https://picsum.photos/seed/shadow-5/1200/800'
+        ]
+      },
+      floating: {
+        title: 'Парящие потолки',
+        images: [
+          'https://picsum.photos/seed/floating-1/1200/800',
+          'https://picsum.photos/seed/floating-2/1200/800',
+          'https://picsum.photos/seed/floating-3/1200/800',
+          'https://picsum.photos/seed/floating-4/1200/800',
+          'https://picsum.photos/seed/floating-5/1200/800',
+          'https://picsum.photos/seed/floating-6/1200/800'
+        ]
+      },
+      multilevel: {
+        title: 'Многоуровневые потолки',
+        images: [
+          'https://picsum.photos/seed/multilevel-1/1200/800',
+          'https://picsum.photos/seed/multilevel-2/1200/800',
+          'https://picsum.photos/seed/multilevel-3/1200/800',
+          'https://picsum.photos/seed/multilevel-4/1200/800'
+        ]
+      },
+      print: {
+        title: 'Потолки с фотопечатью',
+        images: [
+          'https://picsum.photos/seed/print-1/1200/800',
+          'https://picsum.photos/seed/print-2/1200/800',
+          'https://picsum.photos/seed/print-3/1200/800',
+          'https://picsum.photos/seed/print-4/1200/800',
+          'https://picsum.photos/seed/print-5/1200/800'
+        ]
+      },
+      starry: {
+        title: 'Звездное небо',
+        images: [
+          'https://picsum.photos/seed/starry-1/1200/800',
+          'https://picsum.photos/seed/starry-2/1200/800',
+          'https://picsum.photos/seed/starry-3/1200/800',
+          'https://picsum.photos/seed/starry-4/1200/800'
+        ]
+      }
+    };
+
+    let currentGallery = [];
+    let currentImageIndex = 0;
+
+    function openGallery(type) {
+      const gallery = galleryData[type];
+      if (!gallery) return;
+
+      currentGallery = gallery.images;
+      currentImageIndex = 0;
+
+      document.getElementById('galleryTitle').textContent = gallery.title;
+      document.getElementById('galleryModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      renderGallery();
+    }
+
+    function closeGallery() {
+      document.getElementById('galleryModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderGallery() {
+      // Update main image
+      document.getElementById('galleryMainImage').src = currentGallery[currentImageIndex];
+
+      // Update counter
+      document.getElementById('currentIndex').textContent = currentImageIndex + 1;
+      document.getElementById('totalImages').textContent = currentGallery.length;
+
+      // Render thumbnails
+      const thumbnailsContainer = document.getElementById('galleryThumbnails');
+      thumbnailsContainer.innerHTML = '';
+
+      currentGallery.forEach((image, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = image;
+        thumb.className = 'gallery-thumb' + (index === currentImageIndex ? ' active' : '');
+        thumb.onclick = () => {
+          currentImageIndex = index;
+          renderGallery();
+        };
+        thumbnailsContainer.appendChild(thumb);
+      });
+
+      // Scroll active thumbnail into view
+      setTimeout(() => {
+        const activeThumb = thumbnailsContainer.querySelector('.gallery-thumb.active');
+        if (activeThumb) {
+          activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }, 100);
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+      renderGallery();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+      renderGallery();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryModal');
+      if (!modal.classList.contains('active')) return;
+
+      if (e.key === 'Escape') {
+        closeGallery();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
+    });
+
+    // Close on background click
+    document.getElementById('galleryModal').addEventListener('click', (e) => {
+      if (e.target.id === 'galleryModal') {
+        closeGallery();
+      }
+    });
+  </script>
 </body>
 </html>
