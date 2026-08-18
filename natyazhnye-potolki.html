@@ -829,6 +829,34 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .card-with-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-with-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.75) 100%);
+  z-index: 1;
+}
+
+.card-with-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card-with-bg h3,
+.card-with-bg p {
+  color: var(--white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
       .cta {
         grid-template-columns: 1fr;
       }
@@ -1025,7 +1053,7 @@
           <div class="card">
             <div class="card-icon">💧</div>
             <h3>Влагостойкость</h3>
-              <img src="images/vubor/vubor2.png"/>
+              <div class="card card-with-bg" style="background-image: url('images/vubor/vubor2.png');">
             <p>
               ПВХ-пленка не боится воды и может удержать до 100 литров при затоплении.
               Идеально для ванных и кухонь.
