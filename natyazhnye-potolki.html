@@ -385,6 +385,43 @@
       border-radius: var(--radius);
       padding: 26px;
       box-shadow: 0 12px 32px rgba(21, 21, 21, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-with-bg {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .card-with-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.75) 100%);
+      z-index: 1;
+    }
+
+    .card-with-bg > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-with-bg h3,
+    .card-with-bg p {
+      color: var(--white);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-with-bg .card-icon {
+      background: rgba(199, 144, 63, 0.25);
+      border: 2px solid rgba(199, 144, 63, 0.5);
+      color: #f5d4a3;
+      backdrop-filter: blur(10px);
     }
 
     .card-icon {
@@ -829,34 +866,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .card-with-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-with-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.75) 100%);
-  z-index: 1;
-}
-
-.card-with-bg > * {
-  position: relative;
-  z-index: 2;
-}
-
-.card-with-bg h3,
-.card-with-bg p {
-  color: var(--white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
       .cta {
         grid-template-columns: 1fr;
       }
@@ -1050,14 +1059,13 @@
             </p>
           </div>
 
-          <div class="card">
+          <div class="card card-with-bg" style="background-image: url('https://pfst.cf2.poecdn.net/base/image/c50fc7692e1ee05adc1405664050d5a7d13742be654666566f3bf33aacacec04?w=1448&h=1086');">
             <div class="card-icon">💧</div>
-              <div class="card card-with-bg" style="background-image: url('images/vubor/vubor2.png');">
-                <div class="card-icon">⚡</div>
-                  <h3>Влагостойкость</h3>
-                  <p> ПВХ-пленка не боится воды и может удержать до 100 литров при затоплении.
-              Идеально для ванных и кухонь.</p>
-              </div>
+            <h3>Влагостойкость</h3>
+            <p>
+              ПВХ-пленка не боится воды и может удержать до 100 литров при затоплении.
+              Идеально для ванных и кухонь.
+            </p>
           </div>
 
           <div class="card">
@@ -1109,7 +1117,7 @@
 
         <div class="cards-4">
           <div class="card type-card" onclick="openGallery('matte')">
-            <img src="images/matovye/mat4.png" alt="Матовый потолок" loading="lazy" />
+            <img src="https://picsum.photos/seed/matte-ceiling-detail/600/420" alt="Матовый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Матовые</h3>
               <p>Классический вид, похожий на идеально окрашенный потолок. Универсальное решение.</p>
@@ -1120,7 +1128,7 @@
           </div>
 
           <div class="card type-card" onclick="openGallery('gloss')">
-            <img src="images/glossy/glossy3.png" alt="Глянцевый потолок" loading="lazy" />
+            <img src="https://picsum.photos/seed/gloss-ceiling-detail/600/420" alt="Глянцевый потолок" loading="lazy" />
             <div class="type-body">
               <h3>Глянцевые</h3>
               <p>Зеркальная поверхность визуально увеличивает высоту и пространство комнаты.</p>
@@ -1472,26 +1480,22 @@
       matte: {
         title: 'Матовые потолки',
         images: [
-          'images/matovye/mat1.png',
-          'images/matovye/mat2.png',
-          'images/matovye/mat3.png',
-          'images/matovye/mat4.png',
-          'images/matovye/mat5.png',
-          'images/matovye/mat6.png'
+          'https://picsum.photos/seed/matte-1/1200/800',
+          'https://picsum.photos/seed/matte-2/1200/800',
+          'https://picsum.photos/seed/matte-3/1200/800',
+          'https://picsum.photos/seed/matte-4/1200/800',
+          'https://picsum.photos/seed/matte-5/1200/800',
+          'https://picsum.photos/seed/matte-6/1200/800'
         ]
       },
       gloss: {
         title: 'Глянцевые потолки',
         images: [
-          'images/glossy/glossy1.png',
-          'images/glossy/glossy2.png',
-          'images/glossy/glossy4.png',
-          'images/glossy/glossy5.png',
-          'images/glossy/glossy6.png',
-          'images/glossy/glossy7.png',
-          'images/glossy/glossy8.png',
-          'images/glossy/glossy9.png',
-          'images/glossy/glossy10.png'
+          'https://picsum.photos/seed/gloss-1/1200/800',
+          'https://picsum.photos/seed/gloss-2/1200/800',
+          'https://picsum.photos/seed/gloss-3/1200/800',
+          'https://picsum.photos/seed/gloss-4/1200/800',
+          'https://picsum.photos/seed/gloss-5/1200/800'
         ]
       },
       satin: {
