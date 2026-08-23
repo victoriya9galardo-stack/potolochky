@@ -244,15 +244,16 @@
       gap: 24px;
     }
 
-    . {
+    .logo {
       display: flex;
       align-items: center;
       flex: 0 0 auto;
     }
 
-    .-image img {
+    .logo-image img {
       display: block;
-      width: 210px;
+      max-height: 50px;
+      width: auto;
       height: auto;
       object-fit: contain;
     }
@@ -1192,7 +1193,8 @@
       }
 
       .-image img {
-        width: 150px;
+        max-height: 40px;
+        width: auto;
       }
 
       .phone,
