@@ -1569,7 +1569,7 @@
           <div class="quiz-grid">
             <div class="field">
               <label>Площадь помещения</label>
-              <select>
+              <select name="square">
                 <option>До 10 м²</option>
                 <option>10–20 м²</option>
                 <option>20–40 м²</option>
@@ -1580,7 +1580,7 @@
 
             <div class="field">
               <label>Какой потолок хотите?</label>
-              <select>
+              <select name="type">
                 <option>Матовый</option>
                 <option>Глянцевый</option>
                 <option>Сатиновый</option>
@@ -1592,7 +1592,7 @@
 
             <div class="field">
               <label>Ваш телефон</label>
-              <input type="tel" placeholder="+380 __ ___ __ __" />
+              <input name="tel" type="tel" placeholder="+380 __ ___ __ __" />
             </div>
           </div>
 
@@ -2153,5 +2153,104 @@
     <a href="https://t.me/+380505116812" target="_blank" rel="noopener">Telegram</a>
     <a href="#calc">Расчет</a>
   </div>
+
+  <script>
+    // Меню бургер
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    burger?.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          mobileNav.classList.remove('show');
+        }
+      });
+    });
+
+    // Отправка формы через Telegram Bot API (напрямую из JavaScript)
+    const form = document.getElementById('leadForm');
+    const okMsg = document.getElementById('okMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // ВАЖНО: Токен и Chat ID видны в коде - это НЕ безопасно!
+    // Для production лучше использовать хостинг с PHP или Cloudflare Workers
+    const BOT_TOKEN = '8941256747:AAHdBZ2A9JVRq8pERMJpAtOgXdneQU0u9wI';
+    const CHAT_ID = '1111111111';
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Блокируем кнопку
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Відправка...';
+      okMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Собираем данные
+      const formData = new FormData(form);
+      const interest = formData.get('interest');
+      const timing = formData.get('timing');
+      const name = formData.get('name');
+      const contact = formData.get('contact');
+      const comment = formData.get('comment') || 'Не вказано';
+
+      // Формируем сообщение
+      const message = `🔔 <b>Нова заявка з сайту RUNAVYSHYVANKA</b>\n\n` +
+        `👤 <b>Ім'я:</b> ${name}\n` +
+        `📞 <b>Контакт:</b> ${contact}\n` +
+        `🎯 <b>Інтерес:</b> ${interest}\n` +
+        `⏰ <b>Термін:</b> ${timing}\n` +
+        `💬 <b>Коментар:</b> ${comment}\n\n` +
+        `📅 <b>Дата:</b> ${new Date().toLocaleString('uk-UA')}`;
+
+      try {
+        // Отправляем в Telegram
+        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'HTML'
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.ok) {
+          // Успех
+          okMsg.textContent = '✅ Дякуємо! Вашу заявку отримано. Зв\'яжемося найближчим часом.';
+          okMsg.style.display = 'block';
+          form.reset();
+        } else {
+          // Ошибка API
+          errorMsg.textContent = `Помилка: ${result.description || 'Невідома помилка'}`;
+          errorMsg.style.display = 'block';
+        }
+      } catch (error) {
+        // Ошибка сети
+        errorMsg.textContent = 'Помилка зв\'язку. Напишіть нам у Telegram: @Telegram';
+        errorMsg.style.display = 'block';
+        console.error('Error:', error);
+      } finally {
+        // Разблокируем кнопку
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Отримати консультацію';
+      }
+    });
+  </script>
+
 </body>
 </html>
