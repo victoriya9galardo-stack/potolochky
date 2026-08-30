@@ -2185,7 +2185,7 @@
     // ВАЖНО: Токен и Chat ID видны в коде - это НЕ безопасно!
     // Для production лучше использовать хостинг с PHP или Cloudflare Workers
     const BOT_TOKEN = '8941256747:AAHdBZ2A9JVRq8pERMJpAtOgXdneQU0u9wI';
-    const CHAT_ID = '1111111111';
+    const CHAT_ID = '8941256747';
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -2198,10 +2198,10 @@
 
       // Собираем данные
       const formData = new FormData(form);
-      const interest = formData.get('interest');
-      const timing = formData.get('timing');
+      const square = formData.get('square');
+      const type = formData.get('type');
       const name = formData.get('name');
-      const contact = formData.get('contact');
+      const tel = formData.get('tel');
       const comment = formData.get('comment') || 'Не вказано';
 
       // Формируем сообщение
