@@ -821,10 +821,12 @@
 
         <div class="cards-4">
           <div class="card type-card">
-            <img src="https://picsum.photos/seed/walls-living-room/600/420" alt="Тканевые стены в гостиной" loading="lazy" />
-            <div class="type-body">
-              <h3>Жилые помещения</h3>
-              <p>Гостиные, спальни, детские комнаты, кабинеты. Создают уютную атмосферу.</p>
+            <div class="card type-card" onclick="openGallery('matte')">
+              <img src="images/stena/stena4.png" alt="Тканевые стены в гостиной" loading="lazy" />
+              <div class="type-body">
+                <h3>Жилые помещения</h3>
+                <p>Гостиные, спальни, детские комнаты, кабинеты. Создают уютную атмосферу.</p>
+              </div>
             </div>
           </div>
 
@@ -1125,5 +1127,210 @@
     <a href="https://t.me/+380505116812" target="_blank" rel="noopener">Telegram</a>
     <a href="#calc">Расчет</a>
   </div>
+   <script>
+    // Gallery data - здесь можно добавлять неограниченное количество фотографий
+    const galleryData = {
+      matte: {
+        title: 'Жилые помещения',
+        images: [
+          'images/stena/stena1.png',
+          'images/stena/stena2.png',
+          'images/stena/stena3.png',
+          'images/stena/stena5.png',
+          'images/stena/stena6.png',
+          'images/stena/stena7.png',
+          'images/stena/stena8.png',
+          'images/stena/stena9.png',
+          'images/stena/stena10.png',
+          'images/stena/stena11.png',
+          'images/stena/stena12.png'
+        ]
+      },
+      gloss: {
+        title: 'Глянцевые потолки',
+        images: [
+          'images/glossy/glossy1.png',
+          'images/glossy/glossy2.png',
+          'images/glossy/glossy4.png',
+          'images/glossy/glossy5.png',
+          'images/glossy/glossy6.png',
+          'images/glossy/glossy8.png',
+          'images/glossy/glossy9.png',
+          'images/glossy/glossy10.png'
+        ]
+      },
+      satin: {
+        title: 'Сатиновые потолки',
+        images: [
+          'images/satin/satin1.png',
+          'images/satin/satin2.png',
+          'images/satin/satin3.png',
+          'images/satin/satin5.png',
+          'images/satin/satin6.png',
+          'images/satin/satin7.png',
+          'images/satin/satin8.png',
+          'images/satin/satin9.png',
+          'images/satin/satin10.png',
+          'images/satin/satin11.png',
+          'images/satin/satin12.png'
+        ]
+      },
+      shadow: {
+        title: 'Теневые потолки',
+        images: [
+          'images/ten/ten1.png',
+          'images/ten/ten2.png',
+          'images/ten/ten3.png',
+          'images/ten/ten4.png',
+          'images/ten/ten5.png',
+          'images/ten/ten6.png',
+          'images/ten/ten7.png',
+          'images/ten/ten8.png',
+          'images/ten/ten9.png',
+          'images/ten/ten10.png'
+        ]
+      },
+      floating: {
+        title: 'Парящие потолки',
+        images: [
+          'images/par/par1.png',
+          'images/par/par2.png',
+          'images/par/par3.png',
+          'images/par/par4.png',
+          'images/par/par5.png',
+          'images/par/par6.png',
+          'images/par/par7.png',
+          'images/par/par8.png',
+          'images/par/par9.png'
+        ]
+      },
+      multilevel: {
+        title: 'Многоуровневые потолки',
+        images: [
+          'images/mnogo/mnogo1.png',
+          'images/mnogo/mnogo2.png',
+          'images/mnogo/mnogo3.png',
+          'images/mnogo/mnogo4.png',
+          'images/mnogo/mnogo5.png',
+          'images/mnogo/mnogo7.png',
+          'images/mnogo/mnogo8.png',
+          'images/mnogo/mnogo9.png',
+          'images/mnogo/mnogo10.png'
+        ]
+      },
+      print: {
+        title: 'Потолки с фотопечатью',
+        images: [
+          'images/foto/foto1.png',
+          'images/foto/foto2.png',
+          'images/foto/foto3.png',
+          'images/foto/foto4.png',
+          'images/foto/foto5.png',
+          'images/foto/foto6.png',
+          'images/foto/foto7.png',
+          'images/foto/foto8.png'
+        ]
+      },
+      starry: {
+        title: 'Звездное небо',
+        images: [
+          'images/zvezda/zvezda1.png',
+          'images/zvezda/zvezda2.png',
+          'images/zvezda/zvezda3.png',
+          'images/zvezda/zvezda4.png',
+          'images/zvezda/zvezda5.png',
+          'images/zvezda/zvezda6.png',
+          'images/zvezda/zvezda7.png',
+          'images/zvezda/zvezda8.png',
+          'images/zvezda/zvezda9.png'
+        ]
+      }
+    };
+
+    let currentGallery = [];
+    let currentImageIndex = 0;
+
+    function openGallery(type) {
+      const gallery = galleryData[type];
+      if (!gallery) return;
+
+      currentGallery = gallery.images;
+      currentImageIndex = 0;
+
+      document.getElementById('galleryTitle').textContent = gallery.title;
+      document.getElementById('galleryModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      renderGallery();
+    }
+
+    function closeGallery() {
+      document.getElementById('galleryModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderGallery() {
+      // Update main image
+      document.getElementById('galleryMainImage').src = currentGallery[currentImageIndex];
+
+      // Update counter
+      document.getElementById('currentIndex').textContent = currentImageIndex + 1;
+      document.getElementById('totalImages').textContent = currentGallery.length;
+
+      // Render thumbnails
+      const thumbnailsContainer = document.getElementById('galleryThumbnails');
+      thumbnailsContainer.innerHTML = '';
+
+      currentGallery.forEach((image, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = image;
+        thumb.className = 'gallery-thumb' + (index === currentImageIndex ? ' active' : '');
+        thumb.onclick = () => {
+          currentImageIndex = index;
+          renderGallery();
+        };
+        thumbnailsContainer.appendChild(thumb);
+      });
+
+      // Scroll active thumbnail into view
+      setTimeout(() => {
+        const activeThumb = thumbnailsContainer.querySelector('.gallery-thumb.active');
+        if (activeThumb) {
+          activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }, 100);
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+      renderGallery();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+      renderGallery();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryModal');
+      if (!modal.classList.contains('active')) return;
+
+      if (e.key === 'Escape') {
+        closeGallery();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
+    });
+
+    // Close on background click
+    document.getElementById('galleryModal').addEventListener('click', (e) => {
+      if (e.target.id === 'galleryModal') {
+        closeGallery();
+      }
+    });
+  </script>
 </body>
 </html>
