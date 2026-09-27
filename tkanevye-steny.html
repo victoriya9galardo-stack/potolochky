@@ -1127,6 +1127,25 @@
     <a href="https://t.me/+380505116812" target="_blank" rel="noopener">Telegram</a>
     <a href="#calc">Расчет</a>
   </div>
+    <!-- Gallery Modal -->
+  <div class="gallery-modal" id="galleryModal">
+    <div class="gallery-header">
+      <h2 class="gallery-title" id="galleryTitle">Фотогалерея</h2>
+      <button class="gallery-close" onclick="closeGallery()">&times;</button>
+    </div>
+
+    <div class="gallery-main">
+      <button class="gallery-nav-btn prev" onclick="prevImage()">&#8249;</button>
+      <img class="gallery-main-image" id="galleryMainImage" src="" alt="Фото потолка" />
+      <button class="gallery-nav-btn next" onclick="nextImage()">&#8250;</button>
+      <div class="gallery-counter">
+        <span id="currentIndex">1</span> / <span id="totalImages">1</span>
+      </div>
+    </div>
+
+    <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+  </div>
+  
    <script>
     // Gallery data - здесь можно добавлять неограниченное количество фотографий
     const galleryData = {
