@@ -628,6 +628,37 @@
       gap: 14px;
     }
 
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-col {
+       display: flex;
+       flex-direction: column;
+       gap: 8px;
+     }
+ 
+    .footer-nav-col strong {
+      color: #d0c4b8;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .footer-nav-col a {
+      color: #a79c90;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s;
+     }
+
+    .footer-nav-col a:hover {
+      color: #f0c783;
+    }
+    
     .footer-brand img {
       width: 150px;
       height: auto;
@@ -998,10 +1029,12 @@
   <header class="header">
     <div class="container nav">
       <a class="logo logo-image" href="index.html">
-        <img src="logo5.png" alt="Синій Птах — натяжні стелі" />
+        <img src="LogoBLUE6.png" alt="Синій Птах — натяжні стелі" />
       </a>
 
       <nav class="nav-links">
+        <a href="tkanevye-potolki.html">Тканевые потолки</a>
+        <a href="tkanevye-steny.html">Тканевые стены</a>
         <a href="index.html">Главная</a>
         <a href="index.html#price">Цены</a>
         <a href="index.html#works">Работы</a>
@@ -1437,7 +1470,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a class="logo logo-image" href="index.html">
-          <img src="logo5.png" alt="Синій Птах — натяжні стелі" />
+          <img src="LogoBLUE6.png" alt="Синій Птах — натяжні стелі" />
         </a>
         <span>© 2026 Синій Птах. Натяжні стелі під ключ.</span>
       </div>
@@ -1446,6 +1479,26 @@
         Київ та Київська область ·
         <a href="tel:+380505116812">+380 50 511 6812</a>
       </div>
+      <nav class="footer-nav">
+         <div class="footer-nav-col">
+           <strong>Услуги</strong>
+           <a href="natyazhnye-potolki.html">Натяжные потолки</a>
+           <a href="tkanevye-potolki.html">Тканевые потолки</a>
+           <a href="tkanevye-steny.html">Тканевые стены</a>
+         </div>
+         <div class="footer-nav-col">
+           <strong>На этой странице</strong>
+           <a href="#price">Цены</a>
+           <a href="#calc">Расчет</a>
+           <a href="#faq">Вопросы</a>
+         </div>
+         <div class="footer-nav-col">
+           <strong>Контакты</strong>
+           <a href="tel:+380505116812">+380 50 511 6812</a>
+           <a href="https://t.me/+380505116812" target="_blank" rel="noopener">Telegram</a>
+           <a href="https://wa.me/380505116812" target="_blank" rel="noopener">WhatsApp</a>
+         </div>
+       </nav>
     </div>
   </footer>
 
